@@ -1,0 +1,28 @@
+{
+    "name": "wuwx/laravel-socialite-neuqids",
+    "type": "library",
+    "keywords": ["laravel", "socialite", "neuqids"],
+    "description": "",
+    "authors": [
+        {
+            "name": "Wu Weixin",
+            "email": "wuweixin@gmail.com"
+        }
+    ],
+    "require": {
+        "jasig/phpcas": "*",
+        "laravel/socialite": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wuwx\\LaravelSocialiteNeuqids\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wuwx\\LaravelSocialiteNeuqids\\NeuqidsServiceProvider"
+            ]
+        }
+    }
+}
