@@ -11,6 +11,7 @@ class NeuqidsProvider implements ProviderContract
     public function __construct()
     {
         session_set_save_handler(Session::getHandler());
+        ini_set("session.name", "NEUQIDSSESSIONID");
 
         phpCAS::client(CAS_VERSION_2_0, "ids.neuq.edu.cn", 443, "authserver");
 
