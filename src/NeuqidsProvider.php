@@ -2,7 +2,6 @@
 namespace Wuwx\LaravelSocialiteNeuqids;
 
 use Closure;
-use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Contracts\Provider as ProviderContract;
 use phpCAS;
 
@@ -10,15 +9,10 @@ class NeuqidsProvider implements ProviderContract
 {
     public function __construct()
     {
-        session_set_save_handler(Session::getHandler());
-        ini_set("session.name", "NEUQIDSSESSIONID");
-
         phpCAS::client(CAS_VERSION_2_0, "ids.neuq.edu.cn", 443, "authserver");
-
         Closure::bind(static function() {
             return self::$_PHPCAS_CLIENT->setBaseURL("http://ids.neuq.edu.cn/authserver/");
         }, null, phpCAS::class)();
-
         phpCAS::setNoCasServerValidation();
     }
 
